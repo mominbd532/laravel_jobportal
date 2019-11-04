@@ -4,6 +4,12 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
+                @if(Session::has('massage'))
+                    <div class="alert alert-success">
+                        {{Session::get('massage')}}
+                    </div>
+
+                @endif
                 <div class="card">
                     <div class="card-header">{{$job->title}}</div>
 
@@ -31,24 +37,24 @@
                     </div>
 
                 </div>
-                @if(Auth::user()->user_type=='seeker')
+                @if(Auth::check())
+                  @if(Auth::user()->user_type=='seeker')
                     @if(!$job->checkApplication())
+                        <form action="{{route('jobs.apply',[$job->id])}}" method="post">
+                            @csrf
+                            <button style="width: 100%" class="btn btn-success">Apply</button>
 
-                    <form action="{{route('jobs.apply',[$job->id])}}" method="post">
-                        @csrf
-                        <button style="width: 100%" class="btn btn-success">Apply</button>
 
-                        @if(Session::has('massage'))
-                            <div class="alert alert-success">
-                                {{Session::get('massage')}}
-                            </div>
+                        </form>
 
-                            @endif
-
-                        @endif
-                    </form>
-
+                        @else
+                        <div class="alert alert-danger">
+                            <p>Applied</p>
+                        </div>
+                    @endif
+                    @endif
                 @endif
+
             </div>
         </div>
     </div>
