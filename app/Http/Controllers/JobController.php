@@ -12,8 +12,9 @@ use App\Http\Requests\JobPostRequest;
 class JobController extends Controller
 {
     public function index(){
-        $jobs =Job::all()->take('10');
-        return view('welcome',compact('jobs'));
+        $jobs =Job::latest()->limit(10)->get();
+        $companys =Company::latest()->limit(12)->get();
+        return view('welcome',compact('jobs','companys'));
     }
     public function show($id,Job $job){
         return view('jobs.show',compact('job'));
@@ -56,7 +57,17 @@ class JobController extends Controller
         $job = Job::findOrFail($id);
         return view('jobs.edit',compact('job'));
     }
-    public function update($id){
+    public function update(Request $request,$id){
+        $this->validate($request,[
+            'title' =>'required',
+            'roles' =>'required',
+            'description' =>'required',
+            'position' =>'required',
+            'address' =>'required',
+            'status' =>'required',
+            'last_date' =>'required',
+        ]);
+
         $job =Job::findOrFail($id);
         $job->title =request('title');
         $job->roles =request('roles');
@@ -88,6 +99,12 @@ class JobController extends Controller
     public function applicants(){
         $applicants = Job::has('users')->where('user_id',auth()->user()->id)->get();
         return view('jobs.applicants',compact('applicants'));
+    }
+
+    public function all_jobs(){
+        $jobs =Job::latest()->paginate(10);
+        return view('jobs.all_jobs',compact('jobs'));
+
     }
 
 

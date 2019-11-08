@@ -9,7 +9,15 @@ use Illuminate\Support\Facades\Hash;
 
 class EmployerProfileController extends Controller
 {
+
+    /*public function __construct()
+    {
+        $this->middleware('employer');
+    }*/
+
     public function store(){
+
+
         $user = User::create([
 
             'email' => request('email'),

@@ -4,22 +4,22 @@
     <div class="container">
         <div class="row">
             <div class="company-profile">
-                @if(empty(Auth::user()->company->cover_photo))
+                @if(empty($company->cover_photo))
                     <img style="width: 100%" src="{{asset('cover/banner.jpg')}}" width="100">
 
                 @else
                     <img style="width: 100%"
-                         src="{{asset('uploads/cover_photo')}}/{{Auth::user()->company->cover_photo}}"
+                         src="{{asset('uploads/cover_photo')}}/{{$company->cover_photo}}"
                     >
                 @endif
             </div>
             <div class="company-desc"><br>
-                @if(empty(Auth::user()->company->logo))
+                @if(empty($company->logo))
                     <img  src="{{asset('avatar/logo.png')}}" width="100">
 
                 @else
                     <img
-                         src="{{asset('uploads/logo')}}/{{Auth::user()->company->logo}}"
+                         src="{{asset('uploads/logo')}}/{{$company->logo}}"
                          width="100" height="200">
                 @endif
                 <h1>{{$company->cname}}</h1>

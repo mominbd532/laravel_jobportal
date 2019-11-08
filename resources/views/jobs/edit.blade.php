@@ -16,12 +16,28 @@
                                 <input value="{{$job->title}}" type="text" class="form-control" name="title">
                             </div>
 
+                            {{--Error Exception--}}
+                            @if($errors->has('title'))
+                                <div class="error" style="color: red">
+                                    {{$errors->first('title')}}
+                                </div>
+
+                            @endif
+
 
 
                             <div class="form-group">
                                 <label>Roles</label>
                                 <input value="{{$job->roles}}" type="text" class="form-control" name="roles">
                             </div>
+
+                            {{--Error Exception--}}
+                            @if($errors->has('roles'))
+                                <div class="error" style="color: red">
+                                    {{$errors->first('roles')}}
+                                </div>
+
+                            @endif
 
 
 
@@ -30,6 +46,14 @@
                                 <textarea class="form-control" name="description">{{$job->description}}
                                 </textarea>
                             </div>
+
+                            {{--Error Exception--}}
+                            @if($errors->has('description'))
+                                <div class="error" style="color: red">
+                                    {{$errors->first('description')}}
+                                </div>
+
+                            @endif
 
 
 
@@ -55,6 +79,14 @@
                                 <input value="{{$job->position}}" type="text" class="form-control" name="position">
                             </div>
 
+                            {{--Error Exception--}}
+                            @if($errors->has('position'))
+                                <div class="error" style="color: red">
+                                    {{$errors->first('position')}}
+                                </div>
+
+                            @endif
+
 
 
                             <div class="form-group">
@@ -62,6 +94,14 @@
                                 <textarea class="form-control" name="address">{{$job->address}}
                             </textarea>
                             </div>
+
+                            {{--Error Exception--}}
+                            @if($errors->has('address'))
+                                <div class="error" style="color: red">
+                                    {{$errors->first('address')}}
+                                </div>
+
+                            @endif
 
 
 
@@ -100,12 +140,28 @@
                                 <input value="{{$job->status}}" type="text" class="form-control" name="status">
                             </div>
 
+                            {{--Error Exception--}}
+                            @if($errors->has('status'))
+                                <div class="error" style="color: red">
+                                    {{$errors->first('status')}}
+                                </div>
+
+                            @endif
+
 
 
                             <div class="form-group">
                                 <label>Last Date</label>
                                 <input value="{{$job->last_date}}" type="date" class="form-control" name="last_date">
                             </div>
+
+                            {{--Error Exception--}}
+                            @if($errors->has('last_date'))
+                                <div class="error" style="color: red">
+                                    {{$errors->first('last_date')}}
+                                </div>
+
+                            @endif
 
 
                             <div class="form-group">

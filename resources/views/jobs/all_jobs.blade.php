@@ -6,11 +6,11 @@
             <h1>Recent Job</h1>
             <table class="table">
                 <thead>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
                 </thead>
                 <tbody>
                 @foreach($jobs as $job)
@@ -45,31 +45,9 @@
                 @endforeach
                 </tbody>
             </table>
+            {{$jobs->links()}}
 
         </div>
-        <div class="button">
-            <a href="{{route('all_jobs')}}">
-                <button style="width: 100%" class="btn btn-warning btn-lg">All Jobs</button>
-            </a>
 
-        </div><br><br>
-        <h1>Features Company:</h1>
-        <div class="container">
-            <div class="row">
-                @foreach($companys as $company)
-                <div class="col-md-3">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">{{$company->cname}}</h5>
-                            <p class="card-text">{{str_limit($company->description)}}</p>
-                            <a href="{{route('company.index',[$company->id,$company->slug])}}" class="btn btn-primary">Visit Company</a>
-                        </div>
-                    </div>
-
-                </div>
-                    @endforeach
-
-            </div>
-        </div>
     </div>
 @endsection
