@@ -13,7 +13,7 @@
 
 Route::get('/','JobController@index');
 
-Auth::routes(['verify' =>true]);
+Auth::routes(['verify' => true]);
 //Home page
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -29,6 +29,11 @@ Route::get('/jobs/destroy/{id}/{destroy}', 'JobController@destroy')->name('jobs.
 Route::post('/jobs/apply/{id}', 'JobController@apply')->name('jobs.apply');
 Route::get('/jobs/applicants', 'JobController@applicants');
 Route::get('/jobs/all_jobs', 'JobController@all_jobs')->name('all_jobs');
+Route::post('/application/{id}','JobController@apply')->name('apply');
+
+//Save & Unsave Job
+Route::post('/save/{id}','FavoriteController@saveJob');
+Route::post('/unSave/{id}','FavoriteController@unSaveJob');
 
 //company page
 Route::get('/company/{id}/{company}', 'CompanyController@index')->name('company.index');

@@ -4,6 +4,12 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            @if(Session::has('massage'))
+                <div class="alert alert-success">
+                    {{Session::get('massage')}}
+                </div>
+
+            @endif
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
 

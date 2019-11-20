@@ -10,10 +10,10 @@ use Illuminate\Support\Facades\Hash;
 class EmployerProfileController extends Controller
 {
 
-    /*public function __construct()
+    public function __construct()
     {
         $this->middleware('employer');
-    }*/
+    }
 
     public function store(){
 
@@ -29,6 +29,7 @@ class EmployerProfileController extends Controller
               'cname' => request('cname'),
               'slug' => str_slug(request('cname')),
         ]);
-        return redirect()->to('login');
+        return redirect()->to('login')
+            ->with('massage','Email must be verifies');
     }
 }

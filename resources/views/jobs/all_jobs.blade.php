@@ -3,7 +3,45 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <h1>Recent Job</h1>
+            <h1>Recent Job</h1><br><br>
+            <form action="{{route('all_jobs')}}" method="get">
+                <div class="form-inline">
+                    <div class="form-group">
+                        <label>Keyword &nbsp;&nbsp;</label>
+                        <input type="text" name="title" class="form-control">
+                    </div>&nbsp;&nbsp;
+                    <div class="form-group">
+                        <label>Employment Type &nbsp;&nbsp;</label>
+                        <select name="type" class="form-control">
+                            <option>Select Type</option>
+                            <option value="Full Time">Full Time</option>
+                            <option value="Part Time">Part Time</option>
+                            <option value="Casual">Casual</option>
+                        </select>
+                    </div>&nbsp;&nbsp;
+                    <div class="form-group">
+                        <label>Category &nbsp;&nbsp;</label>
+                        <select name="category_id" class="form-control">
+                            <option>Select Category</option>
+                            @foreach(App\Category::all() as $cat)
+                                <option value="{{$cat->id}}">{{$cat->name}}</option>
+
+                            @endforeach
+
+                        </select>
+                    </div>&nbsp;&nbsp;
+                    <div class="form-group">
+                        <label>Address &nbsp;&nbsp;</label>
+                        <input type="text" name="address" class="form-control">
+                    </div>&nbsp;&nbsp;
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </div>
+
+                </div>
+
+            </form>
+
             <table class="table">
                 <thead>
                 <th></th>

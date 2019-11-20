@@ -40,18 +40,17 @@
                 @if(Auth::check())
                   @if(Auth::user()->user_type=='seeker')
                     @if(!$job->checkApplication())
-                        <form action="{{route('jobs.apply',[$job->id])}}" method="post">
-                            @csrf
-                            <button style="width: 100%" class="btn btn-success">Apply</button>
 
-
-                        </form>
+                        <apply-component :jobid={{$job->id}}></apply-component>
 
                         @else
                         <div class="alert alert-danger">
                             <p>Applied</p>
                         </div>
                     @endif
+                      <br>
+                        <favorite-component :jobid={{$job->id}} :favorited={{$job->checkSaved() ? 'true':'false'}}></favorite-component>
+
                     @endif
                 @endif
 

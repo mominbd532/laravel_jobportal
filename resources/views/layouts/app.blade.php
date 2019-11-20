@@ -46,12 +46,15 @@
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                         {{--Employer Registration--}}
+                            @if (Route::has('employer.registration'))
+
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('employer.registration') }}">{{ __('Employer Registration') }}</a>
                             </li>
+                            @endif
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Seeker Register') }}</a>
                                 </li>
                             @endif
                         @else
