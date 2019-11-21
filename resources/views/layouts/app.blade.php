@@ -95,6 +95,9 @@
                                         <a class="dropdown-item" href="{{ route('user.profile') }}">
                                             {{ __('Profile') }}
                                         </a>
+                                        <a class="dropdown-item" href="{{ route('home') }}">
+                                            {{ __('Favorite Job') }}
+                                        </a>
 
                                     @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
