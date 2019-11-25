@@ -31,6 +31,9 @@ Route::get('/jobs/applicants', 'JobController@applicants');
 Route::get('/jobs/all_jobs', 'JobController@all_jobs')->name('all_jobs');
 Route::post('/application/{id}','JobController@apply')->name('apply');
 
+//Search option
+Route::get('/jobs/search','JobController@searchJob');
+
 //Save & Unsave Job
 Route::post('/save/{id}','FavoriteController@saveJob');
 Route::post('/unSave/{id}','FavoriteController@unSaveJob');
