@@ -12,7 +12,7 @@ class EmployerProfileController extends Controller
 
     public function __construct()
     {
-        $this->middleware('employer');
+        $this->middleware('guest');
     }
 
     public function store(){

@@ -55,5 +55,5 @@ Route::post('/profile/avatar', 'UserProfileController@avatar')->name('profile.av
 
 //employer pages
 
-Route::view('employer/profile','auth.emp-register')->name('employer.registration');
+Route::view('/employer/profile','auth.emp-register')->name('employer.registration');
 Route::post('/employer/profile/store', 'EmployerProfileController@store')->name('employer.store');

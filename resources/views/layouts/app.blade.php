@@ -59,7 +59,7 @@
                             @endif
                         @else
                             {{--Post Job For Company--}}
-                            @if(Auth::user()->user_type=='employer')
+                            @if(Auth::check()&&Auth::user()->user_type=='employer')
                             <li>
                                 <a href="{{route('jobs.create')}}">
                                     <button class="btn btn-warning">

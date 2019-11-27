@@ -1,78 +1,268 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Job Finder &mdash; Colorlib Website Template</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-@section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <search-component></search-component>
-            </div>
-            <h1>Recent Job</h1>
-            <table class="table">
-                <thead>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                </thead>
-                <tbody>
-                @foreach($jobs as $job)
-                    <tr>
-                        <td>
-                            @if(empty($job->company->logo))
-                                <img  src="{{asset('avatar/logo.png')}}" width="100">
+    @include('partial.head')
 
-                            @else
-                                <img
-                                        src="{{asset('uploads/logo')}}/{{$job->company->logo}}"
-                                        width="100" height="100">
-                            @endif
-                        </td>
-                        <td>
-                            Position: {{$job->position}}
-                            <br>
-                            Job Type: &nbsp; <i class="fa fa-clock"></i> {{$job->type}}
-                        </td>
-                        <td>
-                            <i class="fa fa-map-marker"></i> &nbsp;Address: {{$job->address}}
-                        </td>
-                        <td>
-                            <i class="fa fa-calendar-check"></i> &nbsp;Date: {{$job->created_at->diffForHumans()}}
-                        </td>
-                        <td>
-                            <a href="{{route('jobs.show',[$job->id,$job->slug])}}">
-                                <button class="btn btn-success btn-sm">Details</button>
-                            </a>
-                        </td>
-                    </tr>
-                @endforeach
-                </tbody>
-            </table>
+</head>
+<body>
 
-        </div>
-        <div class="button">
-            <a href="{{route('all_jobs')}}">
-                <button style="width: 100%" class="btn btn-warning btn-lg">All Jobs</button>
-            </a>
 
-        </div><br><br>
-        <h1>Features Company:</h1>
+
+    @include('partial.nav')
+
+    @include('partial.hero')
+
+    @include('partial.category')
+
+
+    <div class="site-section bg-light">
         <div class="container">
             <div class="row">
-                @foreach($companys as $company)
-                <div class="col-md-3">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">{{$company->cname}}</h5>
-                            <p class="card-text">{{str_limit($company->description)}}</p>
-                            <a href="{{route('company.index',[$company->id,$company->slug])}}" class="btn btn-primary">Visit Company</a>
+                <div class="col-md-8 mb-5 mb-md-0" data-aos="fade-up" data-aos-delay="100">
+                    <h2 class="mb-5 h3">Recent Jobs</h2>
+                    <div class="rounded border jobs-wrap">
+
+                        <a href="job-single.html" class="job-item d-block d-md-flex align-items-center  border-bottom fulltime">
+                            <div class="company-logo blank-logo text-center text-md-left pl-3">
+                                <img src="{{asset('partial/images/company_logo_blank.png')}}" alt="Image" class="img-fluid mx-auto">
+                            </div>
+                            <div class="job-details h-100">
+                                <div class="p-3 align-self-center">
+                                    <h3>Restaurant Crew</h3>
+                                    <div class="d-block d-lg-flex">
+                                        <div class="mr-3"><span class="icon-suitcase mr-1"></span> Resto Bar</div>
+                                        <div class="mr-3"><span class="icon-room mr-1"></span> Florida</div>
+                                        <div><span class="icon-money mr-1"></span> $55000 &mdash; 70000</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="job-category align-self-center">
+                                <div class="p-3">
+                                    <span class="text-info p-2 rounded border border-info">Full Time</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="job-single.html" class="job-item d-block d-md-flex align-items-center freelance">
+                            <div class="company-logo blank-logo text-center text-md-left pl-3">
+                                <img src="{{asset('partial/images/logo_1.png')}}" alt="Image" class="img-fluid mx-auto">
+                            </div>
+                            <div class="job-details h-100">
+                                <div class="p-3 align-self-center">
+                                    <h3>JavaScript Fullstack Developer</h3>
+                                    <div class="d-block d-lg-flex">
+                                        <div class="mr-3"><span class="icon-suitcase mr-1"></span> Cooper</div>
+                                        <div class="mr-3"><span class="icon-room mr-1"></span> Anywhere</div>
+                                        <div><span class="icon-money mr-1"></span> $55000 &mdash; 70000</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="job-category align-self-center">
+                                <div class="p-3">
+                                    <span class="text-warning p-2 rounded border border-warning">Freelance</span>
+                                </div>
+                            </div>
+                        </a>
+
+
+                        <a href="job-single.html" class="job-item d-block d-md-flex align-items-center freelance">
+                            <div class="company-logo blank-logo text-center text-md-left pl-3">
+                                <img src="{{asset('partial/images/logo_1.png')}}" alt="Image" class="img-fluid mx-auto">
+                            </div>
+                            <div class="job-details h-100">
+                                <div class="p-3 align-self-center">
+                                    <h3>ReactJS Fullstack Developer</h3>
+                                    <div class="d-block d-lg-flex">
+                                        <div class="mr-3"><span class="icon-suitcase mr-1"></span> Cooper</div>
+                                        <div class="mr-3"><span class="icon-room mr-1"></span> Anywhere</div>
+                                        <div><span class="icon-money mr-1"></span> $55000 &mdash; 70000</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="job-category align-self-center">
+                                <div class="p-3">
+                                    <span class="text-warning p-2 rounded border border-warning">Freelance</span>
+                                </div>
+                            </div>
+                        </a>
+
+
+                        <a href="job-single.html" class="job-item d-block d-md-flex align-items-center fulltime">
+                            <div class="company-logo blank-logo text-center text-md-left pl-3">
+                                <img src="{{asset('partial/images/company_logo_blank.png')}}images/company_logo_blank.png" alt="Image" class="img-fluid mx-auto">
+                            </div>
+                            <div class="job-details h-100">
+                                <div class="p-3 align-self-center">
+                                    <h3>Assistant Brooker, Real Estate</h3>
+                                    <div class="d-block d-lg-flex">
+                                        <div class="mr-3"><span class="icon-suitcase mr-1"></span> RealState</div>
+                                        <div class="mr-3"><span class="icon-room mr-1"></span> New York</div>
+                                        <div><span class="icon-money mr-1"></span> $55000 &mdash; 70000</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="job-category align-self-center">
+                                <div class="p-3">
+                                    <span class="text-info p-2 rounded border border-info">Full Time</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="job-single.html" class="job-item d-block d-md-flex align-items-center partime">
+                            <div class="company-logo blank-logo text-center text-md-left pl-3">
+                                <img src="{{asset('partial/images/logo_2.png')}}" alt="Image" class="img-fluid mx-auto">
+                            </div>
+                            <div class="job-details h-100">
+                                <div class="p-3 align-self-center">
+                                    <h3>Telecommunication Manager</h3>
+                                    <div class="d-block d-lg-flex">
+                                        <div class="mr-3"><span class="icon-suitcase mr-1"></span> Think</div>
+                                        <div class="mr-3"><span class="icon-room mr-1"></span> London</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="job-category align-self-center">
+                                <div class="p-3">
+                                    <span class="text-danger p-2 rounded border border-danger">Par Time</span>
+                                </div>
+                            </div>
+                        </a>
+
+
+                    </div>
+
+                    <div class="col-md-12 text-center mt-5">
+                        <a href="#" class="btn btn-primary rounded py-3 px-5"><span class="icon-plus-circle"></span> Show More Jobs</a>
+                    </div>
+                </div>
+                <div class="col-md-4 block-16" data-aos="fade-up" data-aos-delay="200">
+                    <div class="d-flex mb-0">
+                        <h2 class="mb-5 h3 mb-0">Featured Jobs</h2>
+                        <div class="ml-auto mt-1"><a href="#" class="owl-custom-prev">Prev</a> / <a href="#" class="owl-custom-next">Next</a></div>
+                    </div>
+
+                    <div class="nonloop-block-16 owl-carousel">
+
+                        <div class="border rounded p-4 bg-white">
+                            <h2 class="h5">Restaurant Crew</h2>
+                            <p><span class="border border-warning rounded p-1 px-2 text-warning">Freelance</span></p>
+                            <p>
+                                <span class="d-block"><span class="icon-suitcase"></span> Resto Bar</span>
+                                <span class="d-block"><span class="icon-room"></span> Florida</span>
+                                <span class="d-block"><span class="icon-money mr-1"></span> $55000 &mdash; 70000</span>
+                            </p>
+                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi neque fugit tempora, numquam voluptate veritatis odit id, iste eum culpa alias, ut officiis omnis itaque ad, rem sunt doloremque molestias.</p>
                         </div>
+
+                        <div class="border rounded p-4 bg-white">
+                            <h2 class="h5">Javascript Fullstack Developer</h2>
+                            <p><span class="border border-warning rounded p-1 px-2 text-warning">Freelance</span></p>
+                            <p>
+                                <span class="d-block"><span class="icon-suitcase"></span> Resto Bar</span>
+                                <span class="d-block"><span class="icon-room"></span> Florida</span>
+                                <span class="d-block"><span class="icon-money mr-1"></span> $55000 &mdash; 70000</span>
+                            </p>
+                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus accusamus necessitatibus praesentium voluptate natus excepturi rerum, autem. Magnam laboriosam, quam sapiente laudantium iure sit ea! Tenetur, quasi, praesentium. Architecto, eum.</p>
+                        </div>
+
+                        <div class="border rounded p-4 bg-white">
+                            <h2 class="h5">Assistant Brooker, Real Estate</h2>
+                            <p><span class="border border-warning rounded p-1 px-2 text-warning">Freelance</span></p>
+                            <p>
+                                <span class="d-block"><span class="icon-suitcase"></span> Resto Bar</span>
+                                <span class="d-block"><span class="icon-room"></span> Florida</span>
+                                <span class="d-block"><span class="icon-money mr-1"></span> $55000 &mdash; 70000</span>
+                            </p>
+                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus esse, quam consectetur ipsum quibusdam ullam ab nesciunt, doloribus voluptatum neque iure perspiciatis vel vero illo consequatur facilis, fuga nobis corporis.</p>
+                        </div>
+
+                        <div class="border rounded p-4 bg-white">
+                            <h2 class="h5">Telecommunication Manager</h2>
+                            <p><span class="border border-warning rounded p-1 px-2 text-warning">Freelance</span></p>
+                            <p>
+                                <span class="d-block"><span class="icon-suitcase"></span> Resto Bar</span>
+                                <span class="d-block"><span class="icon-room"></span> Florida</span>
+                                <span class="d-block"><span class="icon-money mr-1"></span> $55000 &mdash; 70000</span>
+                            </p>
+                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid at ipsum commodi hic, cum esse asperiores libero molestiae, perferendis consectetur assumenda iusto, dolorem nemo maiores magnam illo laborum sit, dicta.</p>
+                        </div>
+
                     </div>
 
                 </div>
-                    @endforeach
-
             </div>
         </div>
     </div>
-@endsection
+
+    @include('partial.testimonial')
+
+
+    <div class="site-blocks-cover overlay inner-page" style="background-image: url('images/hero_1.jpg');" data-aos="fade" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-6 text-center" data-aos="fade">
+                    <h1 class="h3 mb-0">Your Dream Job</h1>
+                    <p class="h3 text-white mb-5">Is Waiting For You</p>
+                    <p><a href="#" class="btn btn-outline-warning py-3 px-4">Find Jobs</a> <a href="#" class="btn btn-warning py-3 px-4">Apply For A Job</a></p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="site-section site-block-feature bg-light">
+        <div class="container">
+
+            <div class="text-center mb-5 section-heading">
+                <h2>Why Choose Us</h2>
+            </div>
+
+            <div class="d-block d-md-flex border-bottom">
+                <div class="text-center p-4 item border-right" data-aos="fade">
+                    <span class="flaticon-worker display-3 mb-3 d-block text-primary"></span>
+                    <h2 class="h4">More Jobs Every Day</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati reprehenderit explicabo quos fugit vitae dolorum.</p>
+                    <p><a href="#">Read More <span class="icon-arrow-right small"></span></a></p>
+                </div>
+                <div class="text-center p-4 item" data-aos="fade">
+                    <span class="flaticon-wrench display-3 mb-3 d-block text-primary"></span>
+                    <h2 class="h4">Creative Jobs</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati reprehenderit explicabo quos fugit vitae dolorum.</p>
+                    <p><a href="#">Read More <span class="icon-arrow-right small"></span></a></p>
+                </div>
+            </div>
+            <div class="d-block d-md-flex">
+                <div class="text-center p-4 item border-right" data-aos="fade">
+                    <span class="flaticon-stethoscope display-3 mb-3 d-block text-primary"></span>
+                    <h2 class="h4">Healthcare</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati reprehenderit explicabo quos fugit vitae dolorum.</p>
+                    <p><a href="#">Read More <span class="icon-arrow-right small"></span></a></p>
+                </div>
+                <div class="text-center p-4 item" data-aos="fade">
+                    <span class="flaticon-calculator display-3 mb-3 d-block text-primary"></span>
+                    <h2 class="h4">Finance &amp; Accounting</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati reprehenderit explicabo quos fugit vitae dolorum.</p>
+                    <p><a href="#">Read More <span class="icon-arrow-right small"></span></a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    @include('partial.blog')
+
+
+
+
+    @include('partial.footer')
+
+</body>
+</html>
