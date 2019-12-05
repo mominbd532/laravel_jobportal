@@ -62,11 +62,9 @@
                                 <select  name="category_id" class="form-control">
                                     @foreach(App\Category::all() as $cat)
 
-                                        @if($job->category_ide=='{{$cat->id}}')
-                                            <option selected>{{$cat->name}}</option>
-                                        @else
-                                        <option value="{{$cat->id}}">{{$cat->name}}</option>
-                                        @endif
+
+                                        <option value="{{$cat->id}}" {{$job->category_id=="$cat->id"? "selected":""}}>{{$cat->name}}</option>
+
 
                                     @endforeach
 
