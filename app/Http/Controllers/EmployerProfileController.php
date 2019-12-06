@@ -29,7 +29,7 @@ class EmployerProfileController extends Controller
               'cname' => request('cname'),
               'slug' => str_slug(request('cname')),
         ]);
-        return redirect()->to('login')
-            ->with('massage','Email must be verifies');
+        return redirect()->back()
+            ->with('massage','Email must be verified');
     }
 }

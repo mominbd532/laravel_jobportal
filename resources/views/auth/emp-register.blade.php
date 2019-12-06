@@ -1,14 +1,21 @@
 @extends('layouts.main')
 
 @section('content')
+    <hr>
     <div class="site-section bg-light">
     <div class="container">
-        <div class="row justify-content-center" style="padding-top: 50px">
+        <div class="row justify-content-center" >
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">{{ __('Employer Register') }}</div>
 
                     <div class="card-body">
+                        @if(Session::has('massage'))
+                            <div class="alert alert-success">
+                                {{Session::get('massage')}}
+                            </div>
+
+                        @endif
                         <form method="POST" action="{{ route('employer.store') }}">
                             @csrf
                             <input type="hidden" value="employer" name="user_type">

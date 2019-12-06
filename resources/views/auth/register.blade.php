@@ -1,9 +1,10 @@
 @extends('layouts.main')
 
 @section('content')
+    <hr>
     <div class="site-section bg-light">
     <div class="container">
-        <div class="row justify-content-center" style="margin-top: 50px">
+        <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">{{ __('Register') }}</div>

@@ -61,6 +61,10 @@
 </footer>
 </div>
 
+
+
+
+
 <script src="{{asset('partial/js/jquery-3.3.1.min.js')}}"></script>
 <script src="{{asset('partial/js/jquery-migrate-3.0.1.min.js')}}"></script>
 <script src="{{asset('partial/js/jquery-ui.js')}}"></script>
@@ -170,3 +174,5 @@
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&libraries=places&callback=initAutocomplete"
         async defer></script>
+
+
