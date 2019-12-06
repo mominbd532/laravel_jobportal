@@ -49,7 +49,10 @@
                         </div>
                     @endif
                       <br>
-                        <favorite-component :jobid={{$job->id}} :favorited={{$job->checkSaved() ? 'true':'false'}}></favorite-component>
+                        <favorite-component :jobid={{$job->id}} :favorited=
+                                {{$job->checkSaved() ? 'true':'false'}}>
+
+                        </favorite-component>
 
                     @endif
                 @endif

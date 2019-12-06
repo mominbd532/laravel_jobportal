@@ -79,6 +79,17 @@
                             <p><a href="{{route('company.index',[$job->company->id,$job->company->slug])}}"
                                   class="btn btn-primary  py-2 px-4">Company Details</a></p>
                         </div>
+                        <div class="p-4 mb-3 bg-white">
+
+                            @if(Auth::check()&&Auth::user()->user_type=='seeker')
+
+                            <favorite-component :jobid={{$job->id}} :favorited={{$job->checkSaved() ? 'true':'false'}}>
+
+                            </favorite-component>
+
+                                @endif
+
+                        </div>
                     </div>
                 </div>
             </div>

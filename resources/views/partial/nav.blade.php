@@ -25,17 +25,113 @@
                                 <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
 
                                 <ul class="site-menu js-clone-nav d-none d-lg-block">
-                                    <li><a href="{{ route('register') }}">For Candidates</a></li>
-                                    <li>
-                                        <a href="{{route('employer.registration')}}">For Employees</a>
 
-                                    </li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                    <li>
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                    @guest
+
+                                        {{--Employer Registration--}}
+
+                                        @if (Route::has('register'))
+
+                                        <li>
+                                            <a href="{{ route('register') }}">For Candidates</a>
+                                        </li>
+
+                                        @endif
+                                        {{--User Registration--}}
+                                        @if (Route::has('employer.registration'))
+
+                                        <li>
+                                            <a href="{{route('employer.registration')}}">For Employees</a>
+                                        </li>
+
+                                        @endif
+
+                                        <li>
+                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                                             Login
-                                        </button>
-                                    </li>
+                                            </button>
+                                        </li>
+                                    @else
+
+                                        {{--Post Job For Company--}}
+                                        @if(Auth::check()&&Auth::user()->user_type=='employer')
+                                            <li>
+                                                <a href="{{route('jobs.create')}}">
+                                                    <button class="btn btn-warning">
+                                                        Post Job
+                                                    </button>
+                                                </a>
+                                            </li>
+                                        @endif
+
+                                        @if(Auth::check())
+
+                                        <li class="has-children">
+                                            <a href="#">
+                                                @if(Auth::user()->user_type=='employer')
+                                                    {{ Auth::user()->company->cname }}
+                                                @else
+
+                                                    {{ Auth::user()->name }}
+                                                @endif
+
+                                                <span class="caret"></span>
+                                            </a>
+
+                                            <ul class="dropdown arrow-top">
+                                                @if(Auth::user()->user_type=='employer')
+
+                                                    <li>
+                                                        <a class="dropdown-item" href="{{ route('company.create') }}">
+                                                            {{ __('Company') }}
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="{{ route('jobs.my_jobs') }}">
+                                                            {{ __('My Jobs') }}
+                                                        </a>
+                                                    </li>
+
+                                                    @else
+
+                                                    <li>
+                                                        <a class="dropdown-item" href="{{ route('user.profile') }}">
+                                                            {{ __('Profile') }}
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="{{ route('home') }}">
+                                                            {{ __('Favorite Job') }}
+                                                        </a>
+                                                    </li>
+
+
+                                                @endif
+
+                                                <li>
+                                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                                        {{ __('Logout') }}
+                                                    </a>
+
+                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                        @csrf
+                                                    </form>
+                                                </li>
+
+                                            </ul>
+
+
+                                        </li>
+
+                                            @endif
+
+
+
+                                    @endguest
+
+                                        <li><a href="contact.html">Contact</a></li>
                                 </ul>
                             </div>
                         </nav>
