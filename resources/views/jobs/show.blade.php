@@ -47,6 +47,13 @@
                                 </a>
                             </div>
 
+                            <h3>Description:
+                            <a href="#">
+
+
+                            </a>
+                            </h3>
+
 
 
                             <p>{{$job->description}}</p>

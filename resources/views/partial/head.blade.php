@@ -28,5 +28,6 @@
 
 <link rel="stylesheet" href="{{asset('partial/css/aos.css')}}">
 
+<link rel="stylesheet" href="{{asset('partial/css/all.min.css')}}">
 <link rel="stylesheet" href="{{asset('partial/css/style.css')}}">
 

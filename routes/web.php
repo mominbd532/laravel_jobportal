@@ -44,6 +44,7 @@ Route::get('/company/create', 'CompanyController@create')->name('company.create'
 Route::post('/company/store', 'CompanyController@store')->name('company.store');
 Route::post('/company/logo', 'CompanyController@logo')->name('company.logo');
 Route::post('/company/cover_photo', 'CompanyController@cover_photo')->name('company.cover_photo');
+Route::get('/company', 'CompanyController@company')->name('company');
 
 //profile page
 
@@ -57,3 +58,8 @@ Route::post('/profile/avatar', 'UserProfileController@avatar')->name('profile.av
 
 Route::view('/employer/profile','auth.emp-register')->name('employer.registration');
 Route::post('/employer/profile/store', 'EmployerProfileController@store')->name('employer.store');
+
+
+//Category Page
+
+Route::get('/category/{id}','CategoryController@index')->name('category.show');

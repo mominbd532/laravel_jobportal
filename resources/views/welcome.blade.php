@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Job Finder &mdash; Colorlib Website Template</title>
+    <title>Job Finder</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -62,7 +62,7 @@
                     </div>
 
                     <div class="col-md-12 text-center mt-5">
-                        <a href="#" class="btn btn-primary rounded py-3 px-5"><span class="icon-plus-circle"></span> Show More Jobs</a>
+                        <a href="{{route('all_jobs')}}" class="btn btn-primary rounded py-3 px-5"><span class="icon-plus-circle"></span> Show More Jobs</a>
                     </div>
                 </div>
 

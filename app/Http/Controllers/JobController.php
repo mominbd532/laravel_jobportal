@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Company;
 use App\Job;
 use App\User;
@@ -13,8 +14,9 @@ class JobController extends Controller
 {
     public function index(){
         $jobs =Job::latest()->limit(10)->get();
+        $categorys =Category::with('jobs')->get();
         $companys =Company::latest()->limit(12)->get();
-        return view('welcome',compact('jobs','companys'));
+        return view('welcome',compact('jobs','companys','categorys'));
     }
     public function show($id,Job $job){
         return view('jobs.show',compact('job'));

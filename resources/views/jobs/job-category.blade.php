@@ -1,45 +1,12 @@
 @extends('layouts.main')
 
 @section('content')
-    <br>
+   <br>
     <div class="site-section bg-light">
         <div class="container">
             <div class="row">
-                <h1>All Jobs</h1>&nbsp;&nbsp;&nbsp;
-                <form action="{{route('all_jobs')}}" method="get">
-                    <div class="form-inline">
-                        <div class="form-group">
-                            <input type="text" name="title" class="form-control" placeholder="Keyword">
-                        </div>&nbsp;&nbsp;
-                        <div class="form-group">
+                <h1>{{$categoryName->name}}</h1>&nbsp;&nbsp;&nbsp;
 
-                            <select name="type" class="form-control">
-                                <option>Select Type</option>
-                                <option value="Full Time">Full Time</option>
-                                <option value="Part Time">Part Time</option>
-                                <option value="Casual">Casual</option>
-                            </select>
-                        </div>&nbsp;&nbsp;
-                        <div class="form-group">
-                            <select name="category_id" class="form-control">
-                                <option>Select Category</option>
-                                @foreach(App\Category::all() as $cat)
-                                    <option value="{{$cat->id}}">{{$cat->name}}</option>
-
-                                @endforeach
-
-                            </select>
-                        </div>&nbsp;&nbsp;
-                        <div class="form-group">
-                            <input type="text" name="address" class="form-control" placeholder="Address">
-                        </div>&nbsp;&nbsp;
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Search</button>
-                        </div>
-
-                    </div>
-
-                </form>
 
                 <table class="table">
                     <thead>
