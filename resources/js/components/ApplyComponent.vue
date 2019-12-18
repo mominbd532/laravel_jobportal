@@ -1,7 +1,7 @@
 <template>
     <form @submit="formSubmit">
 
-        <button v-if="show" style="width: 100%" class="btn btn-success">Apply</button>
+        <button v-if="show"  class="btn btn-primary  py-2 px-4">Apply</button>
         <div v-else class="alert alert-success">
             <p>Job Applied Successfully</p>
 

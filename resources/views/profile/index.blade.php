@@ -1,6 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @section('content')
+    <br>
+    <div class="site-section bg-light">
     <div class="container">
         <div class="row">
             <div class="col-md-3">
@@ -169,5 +171,6 @@
                 </form>
             </div>
         </div>
+    </div>
     </div>
 @endsection

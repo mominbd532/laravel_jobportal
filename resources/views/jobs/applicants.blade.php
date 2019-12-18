@@ -1,6 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @section('content')
+    <br>
+    <div class="site-section bg-light">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-10">
@@ -46,5 +48,6 @@
                     @endforeach
             </div>
         </div>
+    </div>
     </div>
 @endsection

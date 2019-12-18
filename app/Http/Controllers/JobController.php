@@ -19,7 +19,8 @@ class JobController extends Controller
         return view('welcome',compact('jobs','companys','categorys'));
     }
     public function show($id,Job $job){
-        return view('jobs.show',compact('job'));
+        $date=date('Y-m-d');
+        return view('jobs.show',compact('job','date'));
     }
 
     public function create(){

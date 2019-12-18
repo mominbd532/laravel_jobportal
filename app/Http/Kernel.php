@@ -62,6 +62,7 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'seeker' => \App\Http\Middleware\Seeker::class,
         'employer' => \App\Http\Middleware\Employer::class,
+        'admin' => \App\Http\Middleware\AdminMiddleware::class,
         //need to decliner class path
 
     ];

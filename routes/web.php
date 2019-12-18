@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/','JobController@index');
+Route::get('/','JobController@index')->name('welcome');
 
 Auth::routes(['verify' => true]);
 //Home page
@@ -27,7 +27,7 @@ Route::get('/jobs/edit/{id}/{edit}', 'JobController@edit')->name('jobs.edit');
 Route::post('/jobs/update/{id}/{update}', 'JobController@update')->name('jobs.update');
 Route::get('/jobs/destroy/{id}/{destroy}', 'JobController@destroy')->name('jobs.destroy');
 Route::post('/jobs/apply/{id}', 'JobController@apply')->name('jobs.apply');
-Route::get('/jobs/applicants', 'JobController@applicants');
+Route::get('/jobs/applicants', 'JobController@applicants')->name('jobs.applicants');
 Route::get('/jobs/all_jobs', 'JobController@all_jobs')->name('all_jobs');
 Route::post('/application/{id}','JobController@apply')->name('apply');
 
@@ -63,3 +63,31 @@ Route::post('/employer/profile/store', 'EmployerProfileController@store')->name(
 //Category Page
 
 Route::get('/category/{id}','CategoryController@index')->name('category.show');
+
+//Send Mail
+
+Route::post('/email/job','EmailController@send')->name('mail');
+
+//Contact
+
+Route::get('/contact','ContactController@index')->name('contact');
+Route::post('/contact/send','ContactController@create')->name('contact.send');
+Route::get('/contact/show','ContactController@show');
+Route::get('/contact/{id}/destroy','ContactController@destroy')->name('contact.destroy');
+
+
+//Admin Panel
+
+
+Route::group(['middleware' =>['auth','admin']],function (){
+    Route::get('/admin',function (){
+
+        return view('admin.dashboard');
+    });
+
+    Route::get('/registered-role','Admin\DashboardController@registered')->name('admin.registered');
+    Route::get('/registered-role/{id}/edit','Admin\DashboardController@edit')->name('registered.edit');
+    Route::post('/registered-role/{id}/update','Admin\DashboardController@update')->name('registered.update');
+    Route::get('/registered-role/{id}/delete','Admin\DashboardController@delete')->name('registered.delete');
+});
+

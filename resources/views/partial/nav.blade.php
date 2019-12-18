@@ -93,8 +93,13 @@
                                                             {{ __('My Jobs') }}
                                                         </a>
                                                     </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="{{ route('jobs.applicants') }}">
+                                                            {{ __('Applicants') }}
+                                                        </a>
+                                                    </li>
 
-                                                    @else
+                                                    @elseif(Auth::user()->user_type=='seeker')
 
                                                     <li>
                                                         <a class="dropdown-item" href="{{ route('user.profile') }}">
@@ -133,7 +138,7 @@
 
                                     @endguest
 
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="{{route('contact')}}">Contact</a></li>
                                 </ul>
                             </div>
                         </nav>

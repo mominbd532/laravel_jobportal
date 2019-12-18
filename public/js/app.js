@@ -37329,11 +37329,9 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("form", { on: { submit: _vm.formSubmit } }, [
     _vm.show
-      ? _c(
-          "button",
-          { staticClass: "btn btn-success", staticStyle: { width: "100%" } },
-          [_vm._v("Apply")]
-        )
+      ? _c("button", { staticClass: "btn btn-primary  py-2 px-4" }, [
+          _vm._v("Apply")
+        ])
       : _c("div", { staticClass: "alert alert-success" }, [
           _c("p", [_vm._v("Job Applied Successfully")])
         ])

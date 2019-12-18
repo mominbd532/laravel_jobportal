@@ -16,6 +16,12 @@
         <div class="site-section bg-light">
             <div class="container">
                 <div class="row">
+                    @if(Session::has('massage'))
+                        <div class="alert alert-success">
+                            {{Session::get('massage')}}
+                        </div>
+
+                    @endif
 
                     <div class="col-md-12 col-lg-8 mb-5">
 
@@ -48,9 +54,8 @@
                             </div>
 
                             <h3>Description:
-                            <a href="#">
-
-
+                            <a href="#" data-toggle="modal" data-target="#exampleModal1" >
+                                <i style="float: right;" class="fas fa-envelope-square"  ></i>
                             </a>
                             </h3>
 
@@ -58,18 +63,29 @@
 
                             <p>{{$job->description}}</p>
 
-                            @if(Auth::check())
-                                @if(Auth::user()->user_type=='seeker')
-                                    @if(!$job->checkApplication())
 
-                                        <apply-component :jobid={{$job->id}}></apply-component>
+                            @if($job->last_date >= $date)
 
-                                    @else
-                                        <div class="alert alert-danger">
-                                            <p>Applied</p>
-                                        </div>
+                                @if(Auth::check())
+                                    @if(Auth::user()->user_type=='seeker')
+                                        @if(!$job->checkApplication())
+
+                                            <apply-component :jobid={{$job->id}}></apply-component>
+
+                                        @else
+                                            <div class="alert alert-danger">
+                                                <p>Applied</p>
+                                            </div>
+                                        @endif
                                     @endif
                                 @endif
+
+                                @else
+
+                                <div class="alert alert-danger">
+                                    <p>Date Expired</p>
+                                </div>
+
                             @endif
                         </div>
                     </div>
@@ -102,5 +118,52 @@
             </div>
         </div>
 
+    </div>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Send job to your friend.</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="{{route('mail')}}" method="post">
+                    @csrf
+                <div class="modal-body">
+
+
+                        <input type="hidden" name="job_id" value="{{$job->id}}">
+                        <input type="hidden" name="job_slug" value="{{$job->slug}}">
+                        <div class="form-group">
+                            <label>Your Name:</label>
+                            <input type="text" class="form-control" name="your_name">
+                        </div>
+                        <div class="form-group">
+                            <label>Your Email:</label>
+                            <input type="email" class="form-control" name="your_email">
+                        </div>
+                        <div class="form-group">
+                            <label>Friend Name:</label>
+                            <input type="text" class="form-control" name="friend_name">
+                        </div>
+                        <div class="form-group">
+                            <label>Friend Email:</label>
+                            <input type="email" class="form-control" name="friend_email">
+                        </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Send</button>
+                </div>
+                </form>
+            </div>
+        </div>
     </div>
 @endsection

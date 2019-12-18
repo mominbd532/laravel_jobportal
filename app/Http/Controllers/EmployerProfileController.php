@@ -19,7 +19,7 @@ class EmployerProfileController extends Controller
 
 
         $user = User::create([
-
+            'name' => request('cname'),
             'email' => request('email'),
             'user_type'=> request('user_type'),
             'password' => Hash::make(request('password')),
