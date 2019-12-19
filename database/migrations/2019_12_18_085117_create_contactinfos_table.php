@@ -21,7 +21,7 @@ class CreateContactinfosTable extends Migration
             $table->text('serviceTime1');
             $table->text('serviceTime2');
             $table->text('serviceTime3');
-            $table->string('phone');
+            $table->bigInteger('phone');
             $table->string('email');
             $table->string('moreInfo');
             $table->timestamps();

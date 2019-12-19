@@ -42,10 +42,10 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <li>
-                    <a href="./icons.html">
+                <li class="{{'contactInfo/edit' ==request()->path() ? 'active':''}}">
+                    <a href="{{route('admin.contactInfo')}}">
                         <i class="now-ui-icons education_atom"></i>
-                        <p>Icons</p>
+                        <p>Contact Info</p>
                     </a>
                 </li>
                 <li>

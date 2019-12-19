@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Contact;
+use App\Contactinfo;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
     public function index(){
-        return view('contact.create');
+        $contactInfo =Contactinfo::all()->first();
+        return view('contact.create',compact('contactInfo'));
     }
 
     public function create(Request $request){

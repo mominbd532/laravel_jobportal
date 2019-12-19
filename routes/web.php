@@ -89,5 +89,7 @@ Route::group(['middleware' =>['auth','admin']],function (){
     Route::get('/registered-role/{id}/edit','Admin\DashboardController@edit')->name('registered.edit');
     Route::post('/registered-role/{id}/update','Admin\DashboardController@update')->name('registered.update');
     Route::get('/registered-role/{id}/delete','Admin\DashboardController@delete')->name('registered.delete');
+    Route::get('/contactInfo/edit','Admin\ContactInfoController@edit')->name('admin.contactInfo');
+    Route::post('/contactInfo/{id}/edit','Admin\ContactInfoController@update')->name('contactInfo.update');
 });
 

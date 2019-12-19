@@ -103,19 +103,19 @@
                     <div class="p-4 mb-3 bg-white">
                         <h3 class="h5 text-black mb-3">Contact Info</h3>
                         <p class="mb-0 font-weight-bold">Address</p>
-                        <p class="mb-4">203 Fake St. Mountain View, San Francisco, California, USA</p>
+                        <p class="mb-4">{{$contactInfo->addressLine1}}&nbsp;{{$contactInfo->addressLine2}}&nbsp;{{$contactInfo->addressLine3}}</p>
 
                         <p class="mb-0 font-weight-bold">Phone</p>
-                        <p class="mb-4"><a href="#">+1 232 3235 324</a></p>
+                        <p class="mb-4"><a href="#">{{$contactInfo->phone}}</a></p>
 
                         <p class="mb-0 font-weight-bold">Email Address</p>
-                        <p class="mb-0"><a href="#">youremail@domain.com</a></p>
+                        <p class="mb-0"><a href="#">{{$contactInfo->email}}</a></p>
 
                     </div>
 
                     <div class="p-4 mb-3 bg-white">
                         <h3 class="h5 text-black mb-3">More Info</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa ad iure porro mollitia architecto hic consequuntur. Distinctio nisi perferendis dolore, ipsa consectetur? Fugiat quaerat eos qui, libero neque sed nulla.</p>
+                        <p>{{$contactInfo->moreInfo}}</p>
                         <p><a href="#" class="btn btn-primary px-4 py-2 text-white pill">Learn More</a></p>
                     </div>
                 </div>
@@ -129,21 +129,21 @@
                 <div class="col-md-4">
                     <div>
                         <h2><span class="icon-room"></span> Location</h2>
-                        <p class="mb-0">New York - 2398 <br>  10 Hadson Carl Street</p>
+                        <p class="mb-0">{{$contactInfo->addressLine1}}<br>{{$contactInfo->addressLine2}}<br>{{$contactInfo->addressLine3}}</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div>
                         <h2><span class="icon-clock-o"></span> Service Times</h2>
-                        <p class="mb-0">Wednesdays at 6:30PM - 7:30PM <br>
-                            Fridays at Sunset - 7:30PM <br>
-                            Saturdays at 8:00AM - Sunset</p>
+                        <p class="mb-0">{{$contactInfo->serviceTime1}}<br>
+                            {{$contactInfo->serviceTime2}} <br>
+                            {{$contactInfo->serviceTime3}}</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <h2><span class="icon-comments"></span> Get In Touch</h2>
-                    <p class="mb-0">Email: info@yoursite.com <br>
-                        Phone: (123) 3240-345-9348 </p>
+                    <p class="mb-0">Email: {{$contactInfo->email}} <br>
+                        Phone: {{$contactInfo->phone}} </p>
                 </div>
             </div>
         </div>
