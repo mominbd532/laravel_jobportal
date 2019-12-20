@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Category;
 use App\Contactinfo;
+use App\AboutUs;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,6 +17,7 @@ class DatabaseSeeder extends Seeder
         factory('App\User',20)->create();
         factory('App\Company',20)->create();
         factory('App\Job',20)->create();
+        factory('App\OurTeam',6)->create();
 
         $categories =['Government','NGO','Banking','Networking'];
 
@@ -33,6 +35,13 @@ class DatabaseSeeder extends Seeder
             'phone'=>'12323235324',
             'email'=>'youremail@domain.com',
             'moreInfo'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa ad iure porro mollitia architecto hic consequuntur. Distinctio nisi perferendis dolore, ipsa consectetur? Fugiat quaerat eos qui, libero neque sed nulla.',
+        ]);
+
+        AboutUs::create([
+            'description'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, nisi Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit nobis magni eaque velit eum, id rem eveniet dolor possimus voluptas..',
+            'name'=>'John Holmes',
+            'designation'=>'Marketing Strategist',
+
         ]);
     }
 }

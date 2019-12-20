@@ -1,0 +1,252 @@
+@extends('layouts.master')
+
+
+@section('title')
+
+    Our Team | Job Finder
+
+@endsection
+
+
+@section('content')
+    @if(Session::has('message'))
+        <div class="alert alert-success">
+            {{Session::get('message')}}
+        </div>
+
+    @endif
+    @if(Session::has('message1'))
+        <div class="alert alert-danger">
+            {{Session::get('message1')}}
+        </div>
+
+    @endif
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4 class="card-title">Our Team
+
+                            </h4>
+                        </div>
+                        <div class="col-md-6">
+                            <!-- Button trigger modal -->
+                            <button  type="button"  class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal">
+                                Add Team
+                            </button>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+
+
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class=" text-primary">
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Designation
+                            </th>
+                            <th>
+                                Avatar
+                            </th>
+                            <th>
+                                Edit
+                            </th>
+                            <th class="text-right">
+                                Delete
+                            </th>
+                            </thead>
+                            <tbody>
+                            @foreach($ourTeams as $ourTeam)
+                            <tr>
+                                <td>
+                                    {{$ourTeam->name}}
+                                </td>
+                                <td>
+                                    {{$ourTeam->designation}}
+                                </td>
+                                <td>
+                                    @if(empty($ourTeam->avatar))
+                                        <img  src="{{asset('avatar/logo.png')}}" width="100">
+
+                                    @else
+                                        <img
+                                             src="{{asset('uploads/avatar')}}/{{$ourTeam->avatar}}"
+                                             width="100" height="100">
+                                    @endif
+                                </td>
+                                <td >
+                                    <!-- Button trigger modal -->
+                                    <button type="button"  class="btn btn-info" data-toggle="modal" data-target="#editModal{{$ourTeam->id}}">
+                                        Edit
+                                    </button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="editModal{{$ourTeam->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Edit Team</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <form action="{{route('ourTeam.update',[$ourTeam->id])}}" method="post" enctype="multipart/form-data" id="sample_form">
+                                                <div class="modal-body" >
+                                                    @csrf
+                                                    <input type="hidden" name="hide_avatar" value="{{$ourTeam->avatar}}">
+
+
+                                                    <div class="form-group">
+                                                        <label>Name:</label>
+                                                        <input type="text"  class="form-control" value="{{$ourTeam->name}}" name="name" id="name">
+
+                                                    </div>
+                                                    {{--Error Exception--}}
+                                                    @if($errors->has('name'))
+                                                        <div class="error" style="color: red">
+                                                            {{$errors->first('name')}}
+                                                        </div>
+
+                                                    @endif
+
+                                                    <div class="form-group">
+                                                        <label>Designation:</label>
+                                                        <input type="text" class="form-control"  value="{{$ourTeam->designation}}" name="designation" id="designation">
+                                                    </div>
+                                                    {{--Error Exception--}}
+                                                    @if($errors->has('designation'))
+                                                        <div class="error" style="color: red">
+                                                            {{$errors->first('designation')}}
+                                                        </div>
+
+                                                    @endif
+
+
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input" name="avatar" id="avatar"><br>
+                                                        <label class="custom-file-label" for="avatar">Upload Photo</label>
+                                                    </div>
+
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>&nbsp;
+                                                    <button type="submit" class="btn btn-primary">Update</button>
+                                                </div>
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </td>
+                                <td class="text-right">
+                                    <a href="{{route('ourTeam.destroy',[$ourTeam->id])}}" class="btn btn-danger">Delete</a>
+                                </td>
+                            </tr>
+
+                            @endforeach
+
+                            </tbody>
+                        </table>
+
+                        {{$ourTeams->links()}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Team</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <form action="{{route('ourTeam.create')}}" method="post" enctype="multipart/form-data" id="sample_form">
+                @csrf
+                    <div class="modal-body">
+                    <div class="form-group">
+                        <label>Name:</label>
+                        <input type="text"  class="form-control" placeholder="Enter name" name="name" id="name">
+
+                    </div>
+                        {{--Error Exception--}}
+                        @if($errors->has('name'))
+                            <div class="error" style="color: red">
+                                {{$errors->first('name')}}
+                            </div>
+
+                        @endif
+
+                    <div class="form-group">
+                        <label>Designation:</label>
+                        <input type="text" class="form-control"  placeholder="Designation" name="designation" id="designation">
+                    </div>
+                        {{--Error Exception--}}
+                        @if($errors->has('designation'))
+                            <div class="error" style="color: red">
+                                {{$errors->first('designation')}}
+                            </div>
+
+                        @endif
+
+
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="avatar" id="avatar"><br>
+                        <label class="custom-file-label" for="avatar">Upload Photo</label>
+                    </div>
+
+                        {{--Error Exception--}}
+                        @if($errors->has('avatar'))
+                            <div class="error" style="color: red">
+                                {{$errors->first('avatar')}}
+                            </div>
+
+                        @endif
+
+
+
+
+                </div>
+
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+
+
+@endsection
+
+
+
+@section('script')
+
+
+
+
+
+@endsection

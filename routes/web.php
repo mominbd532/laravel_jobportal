@@ -90,6 +90,16 @@ Route::group(['middleware' =>['auth','admin']],function (){
     Route::post('/registered-role/{id}/update','Admin\DashboardController@update')->name('registered.update');
     Route::get('/registered-role/{id}/delete','Admin\DashboardController@delete')->name('registered.delete');
     Route::get('/contactInfo/edit','Admin\ContactInfoController@edit')->name('admin.contactInfo');
-    Route::post('/contactInfo/{id}/edit','Admin\ContactInfoController@update')->name('contactInfo.update');
+    Route::post('/contactInfo/{id}/update','Admin\ContactInfoController@update')->name('contactInfo.update');
+    Route::get('/aboutUs/edit','Admin\AboutUsController@edit')->name('admin.aboutUs');
+    Route::post('/aboutUs/{id}/update','Admin\AboutUsController@update')->name('aboutUs.update');
+    Route::get('/our-team','Admin\OurTeamController@index')->name('admin.ourTeam');
+    Route::post('/our-team/create','Admin\OurTeamController@store')->name('ourTeam.create');
+    Route::post('/our-team/{id}/update','Admin\OurTeamController@update')->name('ourTeam.update');
+    Route::get('/our-team/{id}/destroy','Admin\OurTeamController@destroy')->name('ourTeam.destroy');
 });
 
+
+//About Us
+
+Route::get('/about-us','AboutUsController@index')->name('about.index');

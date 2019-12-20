@@ -73,7 +73,7 @@
                                     </select>
                                 </div>
 
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary">Upadte</button>
                                 <a href="{{route('admin.registered')}}" class="btn btn-danger">Cancel</a>
                             </form>
 

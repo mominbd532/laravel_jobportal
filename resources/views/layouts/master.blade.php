@@ -18,6 +18,8 @@
     <link href="{{asset('assets/css/now-ui-dashboard.css?v=1.3.0')}}" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="{{asset('assets/demo/demo.css" rel="stylesheet')}}" />
+
+
 </head>
 
 <body class="">
@@ -48,16 +50,16 @@
                         <p>Contact Info</p>
                     </a>
                 </li>
-                <li>
-                    <a href="./map.html">
+                <li class="{{'aboutUs/edit' ==request()->path() ? 'active':''}}">
+                    <a href="{{route('admin.aboutUs')}}">
                         <i class="now-ui-icons location_map-big"></i>
-                        <p>Maps</p>
+                        <p>About Us</p>
                     </a>
                 </li>
-                <li>
-                    <a href="./notifications.html">
+                <li class="{{'our-team' ==request()->path() ? 'active':''}}">
+                    <a href="{{route('admin.ourTeam')}}">
                         <i class="now-ui-icons ui-1_bell-53"></i>
-                        <p>Notifications</p>
+                        <p>Our Team</p>
                     </a>
                 </li>
                 <li class="{{'registered-role' ==request()->path() ? 'active':''}}">

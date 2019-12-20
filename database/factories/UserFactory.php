@@ -65,3 +65,12 @@ $factory->define(App\Job::class, function (Faker $faker) {
     ];
 });
 
+
+$factory->define(App\OurTeam::class, function (Faker $faker) {
+    return [
+        'name' => $faker->name,
+        'designation' => $faker-> jobTitle,
+
+    ];
+});
+

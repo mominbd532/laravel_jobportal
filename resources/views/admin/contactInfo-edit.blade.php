@@ -156,7 +156,7 @@
 
                                 @endif
 
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary">Update</button>
                                 <a href="/admin" class="btn btn-danger">Cancel</a>
                             </form>
 
