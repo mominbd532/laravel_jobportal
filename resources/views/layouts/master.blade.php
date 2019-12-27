@@ -65,13 +65,13 @@
                 <li class="{{'registered-role' ==request()->path() ? 'active':''}}">
                     <a href="{{route('admin.registered')}}">
                         <i class="now-ui-icons users_single-02"></i>
-                        <p>Users Profile</p>
+                        <p>Users List</p>
                     </a>
                 </li>
-                <li>
-                    <a href="./tables.html">
+                <li class="{{'blog' == request()->path() ? 'active':''}}">
+                    <a href="{{route('admin.blog')}}">
                         <i class="now-ui-icons design_bullet-list-67"></i>
-                        <p>Table List</p>
+                        <p>Blog</p>
                     </a>
                 </li>
                 <li>

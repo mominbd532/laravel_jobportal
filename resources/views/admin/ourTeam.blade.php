@@ -152,6 +152,7 @@
                                 </td>
                                 <td class="text-right">
                                     <a href="{{route('ourTeam.destroy',[$ourTeam->id])}}" class="btn btn-danger">Delete</a>
+
                                 </td>
                             </tr>
 

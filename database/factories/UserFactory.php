@@ -65,12 +65,24 @@ $factory->define(App\Job::class, function (Faker $faker) {
     ];
 });
 
+//Our Team
 
 $factory->define(App\OurTeam::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'designation' => $faker-> jobTitle,
-
     ];
 });
+
+//Blog
+
+$factory->define(App\Blog::class, function (Faker $faker) {
+    return [
+        'title' => $faker-> title,
+        'author_name' => $faker-> name,
+        'details' => $faker-> paragraph(rand(2,10)),
+    ];
+});
+
+
 

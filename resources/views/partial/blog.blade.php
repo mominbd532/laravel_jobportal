@@ -9,105 +9,29 @@
 
         <div class="nonloop-block-15 owl-carousel">
 
+            @foreach($blogs as $blog)
 
-            <div class="media-with-text">
+                <div class="media-with-text">
                 <div class="img-border-sm mb-4">
                     <a href="#" class="image-play">
-                        <img src="{{asset('partial/images/img_1.jpg')}}" alt="" class="img-fluid">
+                        @if(empty($blog->blog_photo))
+                            <img  src="{{asset('avatar/logo.png')}}" alt="Image placeholder">
+
+                        @else
+                            <img src="{{asset('uploads/blog_photo')}}/{{$blog->blog_photo}}" alt="Image placeholder">
+                        @endif
                     </a>
                 </div>
-                <h2 class="heading mb-0 h5"><a href="#">Jobs are made easy</a></h2>
-                <span class="mb-3 d-block post-date">January 20, 2018 &bullet; By <a href="#">Josh Holmes</a></span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio dolores culpa qui aliquam placeat nobis veritatis tempora natus rerum obcaecati.</p>
+                <h2 class="heading mb-0 h5"><a href="#">{{$blog->title}}</a></h2>
+                <span class="mb-3 d-block post-date">{{$blog->created_at}} &bullet; By <a href="#">{{$blog->author_name }}</a></span>
+                <p>{{$blog->details}}</p>
             </div>
 
-            <div class="media-with-text">
-                <div class="img-border-sm mb-4">
-                    <a href="#" class="image-play">
-                        <img src="{{asset('partial/images/img_2.jpg')}}" alt="" class="img-fluid">
-                    </a>
-                </div>
-                <h2 class="heading mb-0 h5"><a href="#">Jobs are made easy</a></h2>
-                <span class="mb-3 d-block post-date">January 20, 2018 &bullet; By <a href="#">Josh Holmes</a></span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio dolores culpa qui aliquam placeat nobis veritatis tempora natus rerum obcaecati.</p>
-            </div>
+                @endforeach
 
-            <div class="media-with-text">
-                <div class="img-border-sm mb-4">
-                    <a href="#" class="image-play">
-                        <img src="{{asset('partial/images/img_3.jpg')}}" alt="" class="img-fluid">
-                    </a>
-                </div>
-                <h2 class="heading mb-0 h5"><a href="#">Jobs are made easy</a></h2>
-                <span class="mb-3 d-block post-date">January 20, 2018 &bullet; By <a href="#">Josh Holmes</a></span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio dolores culpa qui aliquam placeat nobis veritatis tempora natus rerum obcaecati.</p>
-            </div>
 
-            <div class="media-with-text">
-                <div class="img-border-sm mb-4">
-                    <a href="#" class="image-play">
-                        <img src="{{asset('partial/images/img_1.jpg')}}" alt="" class="img-fluid">
-                    </a>
-                </div>
-                <h2 class="heading mb-0 h5"><a href="#">Jobs are made easy</a></h2>
-                <span class="mb-3 d-block post-date">January 20, 2018 &bullet; By <a href="#">Josh Holmes</a></span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio dolores culpa qui aliquam placeat nobis veritatis tempora natus rerum obcaecati.</p>
-            </div>
 
-            <div class="media-with-text">
-                <div class="img-border-sm mb-4">
-                    <a href="#" class="image-play">
-                        <img src="{{asset('partial/images/img_2.jpg')}}" alt="" class="img-fluid">
-                    </a>
-                </div>
-                <h2 class="heading mb-0 h5"><a href="#">Jobs are made easy</a></h2>
-                <span class="mb-3 d-block post-date">January 20, 2018 &bullet; By <a href="#">Josh Holmes</a></span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio dolores culpa qui aliquam placeat nobis veritatis tempora natus rerum obcaecati.</p>
-            </div>
 
-            <div class="media-with-text">
-                <div class="img-border-sm mb-4">
-                    <a href="#" class="image-play">
-                        <img src="{{asset('partial/images/img_3.jpg')}}" alt="" class="img-fluid">
-                    </a>
-                </div>
-                <h2 class="heading mb-0 h5"><a href="#">Jobs are made easy</a></h2>
-                <span class="mb-3 d-block post-date">January 20, 2018 &bullet; By <a href="#">Josh Holmes</a></span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio dolores culpa qui aliquam placeat nobis veritatis tempora natus rerum obcaecati.</p>
-            </div>
-
-            <div class="media-with-text">
-                <div class="img-border-sm mb-4">
-                    <a href="#" class="image-play">
-                        <img src="{{asset('partial/images/img_1.jpg')}}" alt="" class="img-fluid">
-                    </a>
-                </div>
-                <h2 class="heading mb-0 h5"><a href="#">Jobs are made easy</a></h2>
-                <span class="mb-3 d-block post-date">January 20, 2018 &bullet; By <a href="#">Josh Holmes</a></span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio dolores culpa qui aliquam placeat nobis veritatis tempora natus rerum obcaecati.</p>
-            </div>
-
-            <div class="media-with-text">
-                <div class="img-border-sm mb-4">
-                    <a href="#" class="image-play">
-                        <img src="{{asset('partial/images/img_2.jpg')}}" alt="" class="img-fluid">
-                    </a>
-                </div>
-                <h2 class="heading mb-0 h5"><a href="#">Jobs are made easy</a></h2>
-                <span class="mb-3 d-block post-date">January 20, 2018 &bullet; By <a href="#">Josh Holmes</a></span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio dolores culpa qui aliquam placeat nobis veritatis tempora natus rerum obcaecati.</p>
-            </div>
-
-            <div class="media-with-text">
-                <div class="img-border-sm mb-4">
-                    <a href="#" class="image-play">
-                        <img src="{{asset('partial/images/img_3.jpg')}}" alt="" class="img-fluid">
-                    </a>
-                </div>
-                <h2 class="heading mb-0 h5"><a href="#">Jobs are made easy</a></h2>
-                <span class="mb-3 d-block post-date">January 20, 2018 &bullet; By <a href="#">Josh Holmes</a></span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio dolores culpa qui aliquam placeat nobis veritatis tempora natus rerum obcaecati.</p>
-            </div>
         </div>
 
         <div class="row">

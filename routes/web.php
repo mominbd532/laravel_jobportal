@@ -84,19 +84,33 @@ Route::group(['middleware' =>['auth','admin']],function (){
 
         return view('admin.dashboard');
     });
-
+//User Role
     Route::get('/registered-role','Admin\DashboardController@registered')->name('admin.registered');
-    Route::get('/registered-role/{id}/edit','Admin\DashboardController@edit')->name('registered.edit');
     Route::post('/registered-role/{id}/update','Admin\DashboardController@update')->name('registered.update');
     Route::get('/registered-role/{id}/delete','Admin\DashboardController@delete')->name('registered.delete');
+
+    //Contact
     Route::get('/contactInfo/edit','Admin\ContactInfoController@edit')->name('admin.contactInfo');
     Route::post('/contactInfo/{id}/update','Admin\ContactInfoController@update')->name('contactInfo.update');
+
+    //About Us
+
     Route::get('/aboutUs/edit','Admin\AboutUsController@edit')->name('admin.aboutUs');
     Route::post('/aboutUs/{id}/update','Admin\AboutUsController@update')->name('aboutUs.update');
+
+   //Our Team
+
     Route::get('/our-team','Admin\OurTeamController@index')->name('admin.ourTeam');
     Route::post('/our-team/create','Admin\OurTeamController@store')->name('ourTeam.create');
     Route::post('/our-team/{id}/update','Admin\OurTeamController@update')->name('ourTeam.update');
     Route::get('/our-team/{id}/destroy','Admin\OurTeamController@destroy')->name('ourTeam.destroy');
+
+    //Blog
+
+    Route::get('/blog','Admin\BlogController@index')->name('admin.blog');
+    Route::post('/blog/create','Admin\BlogController@store')->name('blog.create');
+    Route::post('/blog/{id}/update','Admin\BlogController@update')->name('blog.update');
+    Route::get('/blog/{id}/destroy','Admin\BlogController@destroy')->name('blog.destroy');
 });
 
 

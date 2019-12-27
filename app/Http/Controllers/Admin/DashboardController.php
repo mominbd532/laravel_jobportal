@@ -9,14 +9,14 @@ use App\Http\Controllers\Controller;
 class DashboardController extends Controller
 {
     public function registered(){
-        $users =User::paginate(10);
-        return view('admin.register',compact('users'));
+        $admins =User::where('user_type','admin')->paginate(10);
+        $seekers =User::where('user_type','seeker')->paginate(10);
+        $employers =User::where('user_type','employer')->paginate(10);
+        $blocks =User::where('user_type','block')->paginate(10);
+        return view('admin.register',compact('admins','seekers','employers','blocks'));
     }
 
-    public function edit($id){
-        $user= User::findOrFail($id);
-        return view('admin.register-edit',compact('user'));
-    }
+
 
     public function update(Request $request,$id){
         User::where('id',$id)->update([

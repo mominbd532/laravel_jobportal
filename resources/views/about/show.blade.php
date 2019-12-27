@@ -52,49 +52,26 @@
 
                 <!-- </div> -->
             </div>
+
             <div class="row team">
+                @foreach($ourTeams as $ourTeam)
                 <div class="col-lg-2 col-md-4 col-sm-6 col-12" data-aos="fade" data-aos-delay="100">
                     <a href="#" class="person">
-                        <img src="{{asset('partial/images/person_1.jpg')}}" alt="Image placeholder">
-                        <h2>Michelle Megan</h2>
-                        <p>CEO, Co-founder</p>
+                        @if(empty($ourTeam->avatar))
+                            <img  src="{{asset('avatar/logo.png')}}" alt="Image placeholder">
+
+                        @else
+                            <img src="{{asset('uploads/avatar')}}/{{$ourTeam->avatar}}" alt="Image placeholder">
+                        @endif
+
+                        <h2>{{$ourTeam->name}}</h2>
+                        <p>{{$ourTeam->designation}}</p>
                     </a>
                 </div>
-                <div class="col-lg-2 col-md-4 col-sm-6 col-12" data-aos="fade" data-aos-delay="200">
-                    <a href="#" class="person">
-                        <img src="{{asset('partial/images/person_2.jpg')}}" alt="Image placeholder">
-                        <h2>Mike Stellar</h2>
-                        <p>CTO Co-founder</p>
-                    </a>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6 col-12" data-aos="fade" data-aos-delay="300">
-                    <a href="#" class="person">
-                        <img src="{{asset('partial/images/person_3.jpg')}}" alt="Image placeholder">
-                        <h2>Gregg White</h2>
-                        <p>VP Producer</p>
-                    </a>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6 col-12" data-aos="fade" data-aos-delay="400">
-                    <a href="#" class="person">
-                        <img src="{{asset('partial/images/person_4.jpg')}}" alt="Image placeholder">
-                        <h2>Rogie Knitt</h2>
-                        <p>Project Manager</p>
-                    </a>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6 col-12" data-aos="fade" data-aos-delay="500">
-                    <a href="#" class="person">
-                        <img src="{{asset('partial/images/person_1.jpg')}}" alt="Image placeholder">
-                        <h2>Ben Koh</h2>
-                        <p>Project Manager</p>
-                    </a>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6 col-12" data-aos="fade" data-aos-delay="600">
-                    <a href="#" class="person">
-                        <img src="{{asset('partial/images/person_2.jpg')}}" alt="Image placeholder">
-                        <h2>Chris Stanworth</h2>
-                        <p>Product Designer</p>
-                    </a>
-                </div>
+
+                    @endforeach
+
+
             </div>
         </div>
     </div>
