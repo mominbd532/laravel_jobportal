@@ -6,10 +6,9 @@ User Friendly, Smooth & Secure
 
 ## Video Link:
 
-
-- **[Seeker Part](https://youtu.be/KXcZs3JkMbM )**
 - **[Guest Part](https://youtu.be/oxldaU4D96M )**
 - **[Employer Part](https://youtu.be/Qdyw63v4cRE )**
+- **[Seeker Part](https://youtu.be/KXcZs3JkMbM )**
 - **[Admin Part](https://youtu.be/K5Wvqvp6Swg )**
 
 ## Instruction for after clone:

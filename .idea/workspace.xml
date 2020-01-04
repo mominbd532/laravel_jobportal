@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86db8a7c-120c-4747-a409-c0422e100e37" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/blog.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -91,7 +89,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="js" value="27" />
-          <entry key="md" value="242" />
+          <entry key="md" value="309" />
           <entry key="php" value="25065" />
           <entry key="vue" value="1221" />
         </counts>
@@ -100,7 +98,7 @@
         <counts>
           <entry key="Blade" value="13438" />
           <entry key="JavaScript" value="30" />
-          <entry key="Markdown" value="242" />
+          <entry key="Markdown" value="309" />
           <entry key="PHP" value="11624" />
           <entry key="Vue.js" value="1221" />
         </counts>
@@ -113,8 +111,8 @@
         <entry file="file://$PROJECT_DIR$/readme.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="336">
-                <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+              <first_editor relative-caret-position="297">
+                <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
               </first_editor>
               <second_editor />
             </state>
@@ -456,12 +454,12 @@
       <workItem from="1577465731342" duration="11069000" />
       <workItem from="1577896077208" duration="8288000" />
       <workItem from="1577980751537" duration="270000" />
-      <workItem from="1578161899317" duration="3022000" />
+      <workItem from="1578161899317" duration="3409000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="391664000" />
+    <option name="totallyTimeSpent" value="392051000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -850,8 +848,8 @@
     <entry file="file://$PROJECT_DIR$/readme.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="336">
-            <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+          <first_editor relative-caret-position="297">
+            <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
           </first_editor>
           <second_editor />
         </state>
