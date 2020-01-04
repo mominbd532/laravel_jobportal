@@ -133,7 +133,7 @@
                         <div class="col-md-6">
                             <!-- Button trigger modal -->
                             <button  type="button"  class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal">
-                                Add Team
+                                Add Blog
                             </button>
                         </div>
                     </div>
